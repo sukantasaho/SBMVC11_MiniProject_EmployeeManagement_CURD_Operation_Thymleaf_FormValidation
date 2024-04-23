@@ -1,0 +1,109 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Page</title>
+<style type="text/css">
+   .container
+   {
+      background-color: #E1E8ED; 
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 20px;
+      margin-left: 400px;
+      margin-right: 400px;
+      border:1px solid blue;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      
+   }
+   td
+   {
+      padding-top:10px;
+      padding-left: 20px;
+   }
+   .sub
+   {
+     width:120px;
+     height:30px;
+     color:white;
+     border: none;
+     border-radius: 5px;
+     background-color: green;
+     margin-right: 10px;
+   }
+   .can
+   {
+     width:120px;
+     height:30px;
+     color:white;
+     border: none;
+     border-radius: 5px;
+     background-color: maroon;
+     margin-left: 20px;
+      
+   }
+   h1
+   {
+      color:red;
+      text-align: center;
+   }
+   
+   select:hover,input:hover
+   {
+      border: 1px solid red;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+   }
+   input
+   {
+        text-align: center;
+        width:200px;
+   }
+   center
+   {
+      padding-top: 20px;
+      
+   }
+</style>
+</head>
+<
+>
+ 
+ <h1>Update The Employee Details</h1>
+ <hr>
+     <form  th:action="@{/employee/update}" th:object="${emp}" class="container" method="post">
+ <table align="center">
+   <tr>
+     <td>Id</td>
+     <td><input type="text" th:field="*{id}" readonly="true"/></td>
+   </tr>
+   <tr>
+     <td>Name</td>
+     <td><input type="text" th:field="*{name}"/></td>
+     <td>Id Type </td>
+     <td><input type="text" th:field="*{idType}"/></td>
+   </tr>
+   <tr>
+     <td>Address</td>
+     <td><input type="text" th:field="*{address}"/></td>
+     <td>Salary</td>
+     <td><input type="text" th:field="*{salary}"/></td>
+   </tr>
+   <tr>
+     <td>Email</td>
+     <td><input type="text" th:field="*{email}"/></td>
+     <td>Department</td>
+     <td><input type="text" th:field="*{department}"/></td>
+   </tr>
+ </table>
+  <center>
+        <input type="submit" value="Update" class="sub">
+        <input type="reset" value="Reset" class="can">
+   </center>
+ </form>
+ <h3 style="text-align: center;"><a th:href="@{/employee/getAllEmployees}">Report</a></h3>
+ <h3 style="text-align: center;"><a th:href="@{/}">Home</a></h3>
+</body>
+</html>

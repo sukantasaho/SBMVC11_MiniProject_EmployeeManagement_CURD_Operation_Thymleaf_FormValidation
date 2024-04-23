@@ -1,0 +1,105 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Page</title>
+<style type="text/css">
+   .container
+   {
+      background-color: #E1E8ED; 
+      border-radius: 5px;
+      border:1px solid blue;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding-top: 10px;
+      margin-left: 400px;
+      margin-right:400px;
+      margin-top: 30px;
+   } 
+   .sub
+   {
+	   width:120px;
+	   background-color: green;
+	   border-radius: 5px;
+	   border:none;
+	   height:30px;
+	   color: white;
+   }
+   .can
+   {
+	   width:120px;
+	   background-color: maroon;
+	   border-radius: 5px;
+	   border:none;
+	   height:30px;
+	   color: white;
+   }
+   
+   h1
+   {
+      color:red;
+      text-align: center;
+   }
+   
+   select:hover,input:hover
+   {
+      border: 1px solid red;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+   }
+   td
+   {
+	   padding-left: 20px;
+	   padding-top: 10px;
+	   padding-bottom: 20px;
+   }
+   span
+   {
+	   color:red;
+	   text-align: center;
+   }
+   
+</style>
+<script language="JavaScript" src="js/validation.js"></script>
+</head>
+<body>
+ <h1>Employee Registration Form</h1>
+ <hr>
+ <div class="container" > 
+	<form th:action="@{/employee/register}" method="post" th:object="${emp1}" onsubmit="return doValidation(this)">
+       <table align="center">
+           <tr>
+             <td>Name</td>
+             <td><input type="text" th:field="*{name}"/></td>
+             <span id="nameErr"></span>
+             <td>Id Type </td>
+             <td><input type="text" th:field="*{idType}"/></td>
+              <span id="idTypeErr"></span>
+           </tr>
+           <tr>
+             <td>Address</td>
+             <td><input type="text" th:field="*{address}"/></td>
+              <span id="addressErr"></span>
+             <td>Salary</td>
+             <td><input type="text" th:field="*{salary}"/></td>
+              <span id="salaryErr"></span>
+           </tr>
+           <tr>
+             <td>Email</td>
+             <td><input type="text" th:field="*{email}"/></td>
+              <span id="emailErr"></span>
+             <td>Department</td>
+             <td><input type="text" th:field="*{department}"/></td>
+              <span id="departmentErr"></span>
+           </tr>
+       </table>
+        <center>
+			<input type="submit" value="Register" class="sub">
+			<input type="reset" value="Reset" class="can"> 
+	    </center><br>
+    </form>
+ </div>
+ <h3 style="text-align: center;"><a th:href="@{/employee/getAllEmployees}">Report</a></h3>
+ <h3 style="text-align: center;"><a th:href="@{/}">Home</a></h3>
+</body>
+</html>
